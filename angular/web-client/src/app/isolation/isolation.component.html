@@ -1,0 +1,74 @@
+<div class="mb-4 container py-5">
+  <div class="bg-white shadow rounded p-4">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="d-block">
+          <div class="d-flex justify-content-between align-items-center" style="padding-bottom: 5px;">
+            <div>
+              <span class="text-sm font-semibold text-indigo">National Renewable Energy Laboratory (NREL)</span>
+              <span class="category-tag">isolation</span>
+            </div>
+            <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
+              style="font-size: medium; height: 32px; cursor: pointer;"
+              [routerLink]="['/workflow','isolation']">Workflow</span>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <p class="text-sm text-gray">
+              <i class="fas fa-chart-line mr-1 text-gray"></i>
+              Analyze power consumption across different sectors and assess its distribution.
+            </p>
+          </div>
+        </div>
+        <div class="filter-content">
+          <div class="filter-content filter-container">
+            <p>
+              The National Renewable Energy Laboratory (NREL) analyzes power usage across various sectors to identify
+              opportunities for energy conservation and promote sustainable solutions. These sectors are grouped as
+              (residential and traffic) group one and (industrial and commercial) group two. To ensure data security
+              and focused analysis,
+              NREL utilizes isolation filters. These grouped sectors are maintained in different tenants, and
+              isolation filters are applied for
+              filtering data and providing row-level security.
+            </p>
+          </div>
+          <div class="filter-content filter-container d-flex  justify-content-between">
+            <div class="row">
+              <div class="col-md" style="width: 150px;">
+                <p class="text-gray">Below is the website of the organization:</p>
+                <span id="contentText" style="position: relative;">
+                  www.nrel/research/<ejs-dropdownlist id='sectors' [dataSource]='data'
+                    [fields]='fields' [popupHeight]='height' [width]='width' cssClass='inlinecss' [value]='value'
+                    [popupWidth]='popupWidth' [placeholder]='watermark' (change)="onSelectionChange($event)">
+                  </ejs-dropdownlist>.html
+                </span>
+                <div><img class="click-here" src="assets/clickhere.jpg" alt="Click Here" /></div>
+              </div>
+              <div class="col-md" style="width: 900px;" >
+                <p class="text-gray">The available dashboards on the website are:</p>
+                <div class="form-group">
+                  <div style="display: flex;">
+                    <input type="radio" id="Dashboard1" name="Dashboard" value="dashboard1"
+                    (click)="isolationDashboard='dashboard1'" [checked]="isolationDashboard === 'dashboard1'">
+                  <label style="padding-left: 10px;" for="Dashboard1">Energy Consumption and Monitoring
+                    Dashboard</label>
+                  </div>
+                  <div class="display: flex;">
+                    <input type="radio" id="Dashboard2" name="Dashboard" value="dashboard2"
+                    (click)="isolationDashboard='dashboard2'" [checked]="isolationDashboard === 'dashboard2'">
+                  <label style="padding-left: 10px;" for="Dashboard2">Energy Sustainability Dashboard</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md dashboard-btn">
+                <button class="btn btn-primary" style="padding-top: 10px;" (click)="fetchBoldBISettings()">Load
+                  Dashboard</button>
+              </div>
+            </div>
+          </div>
+          <div class="py-4" *ngIf="dashboardContainer==true" id="dashboard" style="width:100% !important; height:800px">
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

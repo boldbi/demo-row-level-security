@@ -1,0 +1,89 @@
+<div class="mb-4 container py-5">
+    <div class="bg-white shadow rounded p-4">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="d-block">
+            <div class="d-flex justify-content-between align-items-center" style="padding-bottom: 5px;">
+              <div>
+                <span class="text-sm font-semibold text-indigo">Category Sales Manager</span>
+                <span class="category-tag">data source</span>
+              </div>
+              <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
+                style="font-size: medium; height: 32px; cursor: pointer;" [routerLink]="['/workflow','datasource']">Workflow</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <p class="text-sm text-gray">
+                <i class="fas fa-chart-line mr-1 text-gray"></i>
+                Examine sales data for specific product categories according to the chosen region.
+              </p>
+            </div>
+          </div>
+          <div class="filter-content">
+            <div class=" filter-container">
+              <p>
+                Category Sales Managers have access to sales data specific to their assigned product category.
+                They have the ability to select particular regions for analyzing metrics such as sales value and profit.
+                The category of the manager and the chosen region are then implemented as filters at the datasource
+                level.
+              </p>
+              <p class="text-gray" style="margin-bottom: 0px !important;">Below are different types of category managers and the available regions for analysis
+              </p>
+            </div>
+            <div class="filter-input filter-container d-flex justify-content-between">
+              <div class="row">
+                <div class="col-md" style="margin-right: 40px;">
+                  <div class="form-group py-1">
+                    <label for="region" class="label-text">Category manager</label>
+                    <div class="col-md-2">
+                      <div class="form-group">
+                        <div (mouseleave)="closeDropdownCategory()">
+                          <div class="form-group">
+                            <button class="filter-field" style="overflow: hidden;" type="button" (click)="toggleDropdownCategory()">
+                              <span *ngIf="!selectedCategory">{{ 'Select' }}</span>
+                              <span *ngIf="selectedCategory">{{ selectedCategory }}</span>
+                              <span class="dropdown-toggle"></span>
+                            </button>
+                            <div class="dropdown-menu" [class.show]="dropdownOpenCategory">
+                              <label class="dropdown-item" *ngFor="let option of categoryOptions" (click)="selectCategory(option.label)">
+                                {{ option.label }}
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md" style="margin-right: 40px;">
+                  <div class="form-group py-1">
+                    <label for="region" class="text-sm label-text">Region</label>
+                    <div (mouseleave)="closeDropdown()">
+                      <div class="form-group">
+                        <button class="filter-field" style="overflow: hidden;" type="button" (click)="toggleDropdown()">
+                          <span *ngIf="selectedRegions.length === 0">Select</span>
+                          <span *ngIf="selectedRegions.length > 0">{{ selectedRegions.join(', ') }}</span>
+                          <span class="dropdown-toggle"></span>
+                        </button>
+                        <div class="dropdown-menu" [class.show]="dropdownOpen">
+                          <label class="dropdown-item" *ngFor="let region of regions">
+                            <input type="checkbox" [value]="region" [checked]="isChecked(region)"
+                              (change)="toggleSelection(region)">
+                            {{ region }}
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md dashboard-btn">
+                  <button class="btn btn-primary mt-3" style="padding-top: 10px;" (click)="fetchBoldBISettings()">LoadDashboard</button>
+                </div>
+              </div>
+            </div>
+            <div class="py-4" *ngIf="dashboardContainer==true" id="dashboard" style="width:100% !important; height:800px"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
