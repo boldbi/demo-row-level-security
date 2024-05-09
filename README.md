@@ -1,6 +1,6 @@
 # Filters Demo
 
-This application demonstrates frontend Angular and backend .NET technologies, illustrating different types of filtering in Bold BI with real-life examples.
+This application, featuring Angular for the frontend and .NET for the backend, demonstrates the implementation of various row-level security features within Bold BI dashboards when integrated into embedded solutions.
 
 ## Running the Backend .NET Application
 
@@ -23,12 +23,15 @@ Follow these steps to run the project:
 If you want to run a component individually, you can directly bootstrap that component in the `main.ts` file.
 
 By default the `AppComponent` will be bootstrapped, as it is the root-component of the application.
+
 ![image](https://github.com/bold-bi/embedded-bi-samples/assets/149655326/a3ba174a-2891-4248-a549-b6513538bca9)
 
-For example, if you want to run the data source filter scenario, you can change the value to `DatasourceComponent`
+For example, if you want to run the data source filter sample, you can change the value to `DatasourceComponent`
+
 ![image](https://github.com/bold-bi/embedded-bi-samples/assets/149655326/a485df37-a22f-4a8a-97aa-5efc8531c2fa)
 
-You can also run the isolation filter scenario, by changing the value to `IsolationComponent`
+You can also run the isolation filter sample, by changing the value to `IsolationComponent`
+
 ![image](https://github.com/bold-bi/embedded-bi-samples/assets/149655326/3cd02a75-5456-4c95-b6d7-80ff3aceea49)
 
 This way, only the specified component will be executed.
