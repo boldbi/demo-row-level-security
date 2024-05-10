@@ -65,7 +65,7 @@ export class IsolationComponent {
             this.isolationDashboard = item.value;
             break;
           case 'tenant':
-            this.selectedTenant = item.value;
+            this.selectedTenant = this.value = item.value;
             break;
         }
       });
