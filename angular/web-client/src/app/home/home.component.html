@@ -1,4 +1,4 @@
-<div [ngClass]="{'hidden': !isLoaded}"class="container max-width py-4">
+<div id="home" class="hidden container max-width py-4">
     <div class="mb-4">
       <h1 class="text-3xl font-bold" style="font-size:x-large;">Scenario based filter samples</h1>
 </div>
@@ -60,4 +60,35 @@
       </ul>
     </div>
   </div>
+
+  <div class="mb-4 container-hover">
+    <div class="bg-white shadow rounded p-4">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="d-block">
+            <div class="d-flex justify-content-between align-items-center" style="padding-bottom: 5px;">
+              <div>
+                <span class="text-sm font-semibold text-indigo">Optimizing Business Operations</span>
+                <span class="category-tag">dynamic connection</span>
+              </div>
+              <div class="d-flex px-2 py-1 text-xs bg-green bg-green-hover text-green"
+               id="expandDynamic" style="cursor: pointer;">
+                <span class="text-green" style="padding-right: 5px;"  routerLink="/dynamic" (click)="selectCard(2)"> Explore sample</span>
+              </div>
+            </div>
+            <div class="mt-2" style="display: flex; justify-content: space-between;">
+              <p class="text-sm text-gray">
+                <i class="fas fa-chart-line mr-1 text-gray"></i>
+                Global organization leverages department-specific data for continuous improvement.
+              </p>
+              <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
+                style="font-size: medium; height: 32px; cursor: pointer;" (click)="selectCard(2)" [routerLink]="['/workflow','dynamic']">Workflow</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  
 

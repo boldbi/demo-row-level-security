@@ -48,5 +48,25 @@
     "Environment": "onpremise",
     "ExpirationTime": "10000",
     "SiteIdentifier": "site/<SITE IDENTIFIER>"
+  },
+  "DynamicConnectionStringIdentity1": {
+    "DashboardId": "eecf0a6a-a357-47c5-8ba0-329df901abe2",
+    "ServerUrl": "https://onpremise-demo.boldbi.com/bi",
+    "UserEmail": "<USER EMAIL>",
+    "EmbedSecret": "<EMBED SECRET KEY>",
+    "EmbedType": "component",
+    "Environment": "onpremise",
+    "ExpirationTime": "10000",
+    "SiteIdentifier": "site/<SITE IDENTIFIER>"
+  },
+  "DynamicConnectionStringIdentity2": {
+    "DashboardId": "eecf0a6a-a357-47c5-8ba0-329df901abe2",
+    "ServerUrl": "https://onpremise-demo.boldbi.com/bi",
+    "UserEmail": "<USER EMAIL>",
+    "EmbedSecret": "<EMBED SECRET KEY>",
+    "EmbedType": "component",
+    "Environment": "onpremise",
+    "ExpirationTime": "10000",
+    "SiteIdentifier": "site/<SITE IDENTIFIER>"
   }
 }

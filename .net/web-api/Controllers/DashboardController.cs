@@ -41,6 +41,19 @@ namespace boldbi.web.api.Controllers
                         embedDetails = GetIsolationDashboard(tenant, dashboard);
                         break;
                     }
+                case "dynamic":
+                    {
+                        var key = Request.Headers["key"];
+                        if (key == "identity1")
+                        {
+                            embedDetails = GetFilteredProperties(_boldbiIProperties.DynamicConnectionStringIdentity1);
+                        }
+                        else
+                        {
+                            embedDetails = GetFilteredProperties(_boldbiIProperties.DynamicConnectionStringIdentity2);
+                        }
+                        break;
+                    }
             }
             return embedDetails ?? new EmbedConfig();
         }
@@ -104,6 +117,19 @@ namespace boldbi.web.api.Controllers
                     _embedSecret = _boldbiIProperties.Tenant2Dashboard1.EmbedSecret;
 
                 }   
+            }
+            else if (filterType == "dynamic")
+            {
+                _embedSecret = _boldbiIProperties.DynamicConnectionStringIdentity1.EmbedSecret;
+                var key = Request.Headers["key"];
+                if (key == "identity1")
+                {
+                    embedQuery += "&embed_user_email=" + _boldbiIProperties.DynamicConnectionStringIdentity1.UserEmail;
+                }
+                else
+                {
+                    embedQuery += "&embed_user_email=" + _boldbiIProperties.DynamicConnectionStringIdentity2.UserEmail;
+                }
             }
 
             //To set embed_server_timestamp to overcome the EmbedCodeValidation failing while different timezone using at client application.
