@@ -33,7 +33,7 @@ export class WorkflowComponent implements OnInit{
       this.router.navigate(['/isolation']);
     }
     else if(this.filterType == 'dynamic') {
-      this.router.navigate(['/dynamic']);
+      this.router.navigate(['/dynamic-connection']);
     }
   }
 }

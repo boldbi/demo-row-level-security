@@ -12,5 +12,5 @@ export const routes: Routes =
       { path: 'datasource', component: DatasourceComponent },
       { path: 'isolation', component: IsolationComponent },
       { path: 'workflow/:filterType', component: WorkflowComponent },
-      { path: 'dynamic', component: DynamicComponent }
+      { path: 'dynamic-connection', component: DynamicComponent }
    ];
