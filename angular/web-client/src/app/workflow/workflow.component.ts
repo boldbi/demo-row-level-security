@@ -32,5 +32,8 @@ export class WorkflowComponent implements OnInit{
     else if(this.filterType == 'isolation') {
       this.router.navigate(['/isolation']);
     }
+    else if(this.filterType == 'dynamic') {
+      this.router.navigate(['/dynamic']);
+    }
   }
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild} from '@angular/core';
+import { Component, ElementRef, AfterViewInit} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedService } from '../shared.service';
 import { Subscription } from 'rxjs';
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit{
 
   selectedIndexSubscription!: Subscription;
 
@@ -40,5 +40,15 @@ export class HomeComponent {
   //clear the local storage
   clearLocalStorage(): void {
     localStorage.clear();
+  }
+  ngAfterViewInit(): void {
+    const mainElement: any =  document.getElementById('home');
+    if(mainElement) {
+      mainElement.classList.remove('hidden');
+    }
+  }
+  
+  openHome(dynamicFilterType: string): void {
+    localStorage.setItem('dynamicFilterType',dynamicFilterType);
   }
 }
