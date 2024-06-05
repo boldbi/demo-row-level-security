@@ -32,8 +32,11 @@ export class WorkflowComponent implements OnInit{
     else if(this.filterType == 'isolation') {
       this.router.navigate(['/isolation']);
     }
-    else if(this.filterType == 'dynamic') {
+    else if(this.filterType == 'dynamicAPI' || this.filterType == 'dynamicCustom') {
       this.router.navigate(['/dynamic-connection']);
+    }
+    else if(this.filterType == 'webdatasource') {
+      this.router.navigate(['/webdatasource']);
     }
   }
 }

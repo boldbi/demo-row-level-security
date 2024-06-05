@@ -54,6 +54,12 @@ namespace boldbi.web.api.Model
         public EmbedConfig Tenant2Dashboard2 { get; set; }
         public EmbedConfig DynamicConnectionStringIdentity1 { get; set; }
         public EmbedConfig DynamicConnectionStringIdentity2 { get; set; }
+        
+        public EmbedConfig DynamicConnectionStringCustomAttributeUser1 { get; set; }
+        
+        public EmbedConfig DynamicConnectionStringCustomAttributeUser2 { get; set; }
+        
+        public EmbedConfig WebDatasource { get; set; }
     }
 
     public class EmbedConfig

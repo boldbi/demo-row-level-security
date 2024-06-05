@@ -23,12 +23,16 @@ export class DynamicComponent {
   private boldbisettings: BoldBISettings | null = null;
 
   // Flag to control visibility of the dashboard container
-  public dashboardContainer: boolean = false;
+  public dashboardContainer1: boolean = false;
+
+  public dashboardContainer2: boolean = false;
 
   // Field used to store the identity value
   public identity: string = '';
 
   public selectedDynamic: number[] = [];
+
+  public selectedAttribute: string = 'staging';
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
@@ -45,23 +49,73 @@ export class DynamicComponent {
     if (storedDataString) {
       const storedData: any[] = JSON.parse(storedDataString);
       this.identity = storedData[0].value;
+      this.setAttribute(storedData[1].value);
     }
+    const selectFromHome = localStorage.getItem('dynamicFilterTypeHome')
+    const selectedCard = localStorage.getItem('dynamicFilterType')
+    if (selectFromHome) {
+      if(selectFromHome == "api")
+      {
+        this.selectedDynamic = [0]
+      }
+      else{
+        this.selectedDynamic = [1]
+      }
+    }
+    else if (selectedCard) {
+      this.selectedDynamic = [Number(selectedCard)];
+    }
+    localStorage.removeItem('dynamicFilterType');
+    localStorage.removeItem('dynamicFilterTypeHome');
     localStorage.removeItem('dynamicPreviousSelections');
   }
 
   // To retireve previous data from the local storage 
   setData(): void {
     var data: any[] = [
-      { label: 'identity', value: this.identity }
+      { label: 'identity', value: this.identity },
+      { label: 'attribute', value: this.selectedAttribute }
     ]
+    localStorage.setItem('dynamicFilterType', this.selectedDynamic[0].toString())
     localStorage.setItem('dynamicPreviousSelections', JSON.stringify(data));
+  }
+
+  leftClick(): void {
+    var button = document.getElementById('btn');
+    if (button) {
+      button.style.left = '0';
+    }
+    this.selectedAttribute = 'staging'
+  }
+
+  rightClick(): void {
+    var button = document.getElementById('btn');
+    if (button) {
+      button.style.left = '110px';
+    }
+    this.selectedAttribute = 'production'
+  }
+
+  selectCard(index: number): void {
+    this.dashboardContainer2 = false;
+    this.dashboardContainer1 = false;
+    if (this.selectedDynamic.includes(index)) {
+      this.selectedDynamic = [];
+    }
+    else {
+      this.selectedDynamic = [index];
+    }
+  }
+
+  setAttribute(attribute: string): void {
+    this.selectedAttribute = attribute;
   }
 
   // Dashboard rendering methods
 
   // Fetch BoldBI settings from the backend and prepare for dashboard rendering
-  fetchBoldBISettings() {
-    this.dashboardContainer = true;
+  fetchBoldBISettingsExternalApi() {
+    this.dashboardContainer1 = true;
     const headers = new HttpHeaders({
       'filterType': 'dynamic',
       'key': this.identity,
@@ -69,13 +123,13 @@ export class DynamicComponent {
     this.http.get<BoldBISettings>(this.boldbisettingsApi, { headers }).subscribe(
       (result) => {
         this.boldbisettings = result;
-        this.loadDashboard();
+        this.loadDashboardExternalApi();
       }
     );
   }
 
   // Create a BoldBI instance and load the required dashboard
-  loadDashboard() {
+  loadDashboardExternalApi() {
     const option = {
       serverUrl: `${this.boldbisettings?.ServerUrl ?? ''}/${this.boldbisettings?.SiteIdentifier ?? ''}`,
       dashboardId: this.boldbisettings?.DashboardId,
@@ -100,6 +154,46 @@ export class DynamicComponent {
         isEnabled: true,
         identity: this.identity
       }
+    };
+    const dashboard = BoldBI.create(option);
+    dashboard.loadDashboard();
+  }
+  // Fetch BoldBI settings from the backend and prepare for dashboard rendering
+  fetchBoldBISettingsCustomAttribute() {
+    this.dashboardContainer2 = true;
+    const headers = new HttpHeaders({
+      'filterType': 'dynamic-CA',
+      'customAttribute': this.selectedAttribute
+    });
+    this.http.get<BoldBISettings>(this.boldbisettingsApi, { headers }).subscribe(
+      (result) => {
+        this.boldbisettings = result;
+        this.loadDashboardCustomAttribute();
+      }
+    );
+  }
+
+  // Create a BoldBI instance and load the required dashboard
+  loadDashboardCustomAttribute() {
+    const option = {
+      serverUrl: `${this.boldbisettings?.ServerUrl ?? ''}/${this.boldbisettings?.SiteIdentifier ?? ''}`,
+      dashboardId: this.boldbisettings?.DashboardId,
+      embedContainerId: 'dashboard3',
+      embedType: BoldBI.EmbedType.Component,
+      environment: this.boldbisettings?.Environment,
+      mode: BoldBI.Mode.View,
+      width: '100%',
+      height: '800px',
+      authorizationServer: {
+        url: this.authorizationApi,
+        headers: {
+          'filterType': 'dynamic-CA',
+          'customAttribute': this.selectedAttribute
+        }
+      },
+      dashboardSettings: {
+        showHeader: false
+      },
     };
     const dashboard = BoldBI.create(option);
     dashboard.loadDashboard();

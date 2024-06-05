@@ -49,6 +49,6 @@ export class HomeComponent implements AfterViewInit{
   }
   
   openHome(dynamicFilterType: string): void {
-    localStorage.setItem('dynamicFilterType',dynamicFilterType);
+    localStorage.setItem('dynamicFilterTypeHome',dynamicFilterType);
   }
 }

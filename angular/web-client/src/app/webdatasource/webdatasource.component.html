@@ -1,0 +1,69 @@
+<div class="mb-4 container py-5">
+  <div class="bg-white shadow rounded p-4">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="d-block">
+          <div class="d-flex justify-content-between align-items-center" style="padding-bottom: 5px;">
+            <div>
+              <span class="text-sm font-semibold text-indigo">Urban Heights Hotel</span>
+              <span class="category-tag">web data source</span>
+            </div>
+            <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
+              style="font-size: medium; height: 32px; cursor: pointer;"
+              [routerLink]="['/workflow','webdatasource']">Workflow</span>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <p class="text-sm text-gray">
+              <i class="fas fa-chart-line mr-1 text-gray"></i>
+              Maximizing Occupancy and Revenue Through Strategic Hospitality Management.
+            </p>
+          </div>
+        </div>
+        <div class="filter-content">
+          <div class=" filter-container">
+            <p>
+              The Urban Heights hotel is preparing to host a large international conference and expects a diverse group
+              of attendees,
+              including solo travelers, small groups, and business executives. To optimize their strategy, the hotel
+              management
+              uses web data sources to switch between different databases, allowing the hotel to tailor its pricing and
+              availability
+              strategies across all room types. This approach ensures a well-rounded strategy that maximizes occupancy
+              and revenue during the conference.
+            </p>
+          </div>
+          <div class="filter-input filter-container d-flex justify-content-between">
+            <div class="row">
+              <div class="col-md" style="width: 600px !important;">
+                <p class="text-gray">Below are different types of lodging available: </p>
+                  <div class="form-group">
+                    <div style="display: flex;" (click)="selectedCategory='private suites'">
+                      <input type="radio" id="private suites" value="private suites"
+                        [checked]="selectedCategory === 'private suites'">
+                      <label style="padding-left: 10px;" for="Dashboard1">Private Suites</label>
+                    </div>
+                    <div class="display: flex;" (click)="selectedCategory='signature suites'">
+                      <input type="radio" id="signature suites" value="signature suites"
+                        [checked]="selectedCategory === 'signature suites'">
+                      <label style="padding-left: 10px;" for="Dashboard2">Signature Suites</label>
+                    </div>
+                    <div class="display: flex;" (click)="selectedCategory='premium lodgings'">
+                      <input type="radio" id="premium lodgings" value="premium lodgings"
+                        [checked]="selectedCategory === 'premium lodgings'">
+                      <label style="padding-left: 10px;" for="Dashboard2">Premium Lodgings</label>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-md-4 dashboard-btn">
+                <button class="btn btn-primary mt-3 dashboardbtn" (click)="fetchBoldBISettings()">Load
+                  Dashboard</button>
+              </div>
+            </div>
+          </div>
+          <div class="py-4" *ngIf="dashboardContainer==true" id="dashboard" style="width:100% !important; height:800px">
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

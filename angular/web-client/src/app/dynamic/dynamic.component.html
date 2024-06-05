@@ -8,27 +8,34 @@
                             <span class="text-sm font-semibold text-indigo">Optimizing Business Operations</span>
                             <span class="category-tag">dynamic connection</span>
                         </div>
-                        <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
-                            style="font-size: medium; height: 32px; cursor: pointer;"
-                            [routerLink]="['/workflow','dynamic']">Workflow</span>
+                        <div class="d-flex px-2 py-1 text-xs bg-green bg-green-hover text-green"
+                            style="cursor: pointer;">
+                            <span class="text-green" id="API" style="padding-right: 5px;"
+                                (click)="selectCard(0)">Explore
+                                sample</span>
+                        </div>
                     </div>
-                    <div style="display: flex; justify-content: space-between;">
+                    <div class="mt-2" style="display: flex; justify-content: space-between;">
                         <p class="text-sm text-gray">
                             <i class="fas fa-chart-line mr-1 text-gray"></i>
                             Global organization leverages department-specific data for continuous improvement.
                         </p>
+                        <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
+                            style="font-size: medium; height: 32px; cursor: pointer;"
+                            [routerLink]="['/workflow','dynamicAPI']">Workflow</span>
                     </div>
                 </div>
-                <div class="filter-container">
+                <div class="filter-container" *ngIf="selectedDynamic.includes(0)">
                     <div>
                         <p>
                             By leveraging the dynamic connection string feature via an external API,
-                            the Operations Manager and the Chief Business Officer (CBO) of an organization can
+                            the Operations Manager and the Chief Financial Officer (CFO) of an organization can
                             dynamically
                             change the data source to access department-specific data. The Operations Manager gains
                             insights
-                            from customer support and administration to streamline operations, while the CBO utilizes
-                            data from human resource and marketing to steer the company towards profitability.
+                            from customer support and administration to streamline operations, while the CFO utilizes
+                            financial
+                            data from accounting and sales to steer the company towards profitability.
                         </p>
                     </div>
                     <div class="filter-input d-flex justify-content-between">
@@ -38,25 +45,94 @@
                                 <div class="form-group">
                                     <div style="display: flex;" (click)="identity='identity1'">
                                         <input type="radio" id="identity1" value="identity1"
-                                             [checked]="identity === 'identity1'">
-                                        <label style="padding-left: 10px;" for="Dashboard1">Andrew (Operations Manager) - Accounting, Administration, Customer Success and Customer Support</label>
+                                            [checked]="identity === 'identity1'">
+                                        <label style="padding-left: 10px;" for="Dashboard1">Andrew (Operations Manager)
+                                            -
+                                            Accounting, Administration, Customer success and Customer support</label>
                                     </div>
                                     <div class="display: flex;" (click)="identity='identity2'">
                                         <input type="radio" id="identity2" value="identity2"
-                                             [checked]="identity === 'identity2'">
-                                        <label style="padding-left: 10px;" for="Dashboard2">Bergs (Chief Business
+                                            [checked]="identity === 'identity2'">
+                                        <label style="padding-left: 10px;" for="Dashboard2">Bergs (Chief Financial
                                             Officer)
-                                            - Finance, Human Resources, IT and Marketing</label>
+                                            - Finance, Human resources, IT and marketing</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md dashboard-btn">
                                 <button class="btn btn-primary mt-3 dashboardbtn"
-                                    (click)="fetchBoldBISettings()">Load Dashboard</button>
+                                    (click)="fetchBoldBISettingsExternalApi()">Load Dashboard</button>
                             </div>
                         </div>
                     </div>
-                    <div class="py-4" *ngIf="dashboardContainer==true" id="dashboard3"
+                    <div class="py-4" *ngIf="dashboardContainer1==true" id="dashboard3"
+                        style="width:100% !important; height:800px"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="mb-4 container">
+    <div class="bg-white shadow rounded p-4">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="d-block">
+                    <div class="d-flex justify-content-between align-items-center" style="padding-bottom: 5px;">
+                        <div>
+                            <span class="text-sm font-semibold text-indigo">Performance Review and Planning</span>
+                            <span class="category-tag">dynamic connection</span>
+                        </div>
+                        <div class="d-flex px-2 py-1 text-xs bg-green bg-green-hover text-green"
+                            style="cursor: pointer;">
+                            <span class="text-green" id="customAttribute" style="padding-right: 5px;"
+                                (click)="selectCard(1)"> Explore
+                                sample</span>
+                        </div>
+                    </div>
+                    <div class="mt-2" style="display: flex; justify-content: space-between;">
+                        <p class="text-sm text-gray">
+                            <i class="fas fa-chart-line mr-1 text-gray"></i>
+                            Nexus Insights uses dynamic connection strings to analyze past and projected data for strategic target setting.
+                        </p>
+                        <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
+                            style="font-size: medium; height: 32px; cursor: pointer;"
+                            [routerLink]="['/workflow','dynamicCustom']">Workflow</span>
+                    </div>
+                </div>
+                <div class="filter-container" *ngIf="selectedDynamic.includes(1)">
+                    <div>
+                        <p>
+                            During the annual performance review, the management team of Nexus Insights organization
+                            analyzes both historical and
+                            projected data to set targets for the upcoming year. By using the dynamic connection
+                            string custom attribute feature to switch between staging and production data,
+                            they can compare past performance with future projections. This approach helps identify
+                            trends, set realistic targets, and
+                            prepare action plans.
+                        </p>
+                    </div>
+                    <div class="filter-input d-flex justify-content-between">
+                        <div class="row">
+                            <div class="col-md-" style="width:400px;">
+                                <p class="text-gray">Select the environment:</p>
+                                <div class="form-group">
+                                    <div class="form-box">
+                                        <div class="button-box">
+                                            <div id="btn" [style.left.px]="selectedAttribute === 'production' ? 110 : 0"></div>
+                                            <button type="button" class="toggle-btn" (click)="setAttribute('staging')">Staging</button>
+                                            <button type="button" class="toggle-btn" (click)="setAttribute('production')">Production</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md dashboard-btn">
+                                <button class="btn btn-primary mt-3 dashboardbtn"
+                                    (click)="fetchBoldBISettingsCustomAttribute()">Load Dashboard</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py-4" *ngIf="dashboardContainer2==true" id="dashboard3"
                         style="width:100% !important; height:800px"></div>
                 </div>
             </li>

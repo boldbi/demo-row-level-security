@@ -20,6 +20,10 @@
         <a #dynamicLink class="nav-link link-light" style="font-weight: 600; cursor: pointer;" routerLink="/dynamic-connection"
           (click)="selectFromNav(2)">Dynamic connection</a>
       </li>
+      <li class="nav-item px-2" id="webdatasource" [class.selected]="selected.includes(3)">
+        <a #webdatasource class="nav-link link-light" style="font-weight: 600; cursor: pointer;" routerLink="/webdatasource"
+          (click)="selectFromNav(3)">Web data source</a>
+      </li>
       <li class="nav-item px-2 nav-item selected" id="source-code">
         <a class="nav-link link-light" style="font-weight: 600; cursor: pointer;"
           href="https://github.com/boldbi/demo-row-level-security" target="_blank">Sample code</a>
