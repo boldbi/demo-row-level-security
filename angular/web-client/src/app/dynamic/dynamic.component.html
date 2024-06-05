@@ -13,6 +13,8 @@
                             <span class="text-green" id="API" style="padding-right: 5px;"
                                 (click)="selectCard(0)">Explore
                                 sample</span>
+                                <span class=" dropdown-toggle" style="font-size: medium; cursor: pointer;"
+                                [ngClass]="{ 'rotate-180': selectedDynamic.includes(0) }"></span>
                         </div>
                     </div>
                     <div class="mt-2" style="display: flex; justify-content: space-between;">
@@ -88,12 +90,15 @@
                             <span class="text-green" id="customAttribute" style="padding-right: 5px;"
                                 (click)="selectCard(1)"> Explore
                                 sample</span>
+                                <span class=" dropdown-toggle" style="font-size: medium; cursor: pointer;"
+                                [ngClass]="{ 'rotate-180': selectedDynamic.includes(1) }"></span>
                         </div>
                     </div>
                     <div class="mt-2" style="display: flex; justify-content: space-between;">
                         <p class="text-sm text-gray">
                             <i class="fas fa-chart-line mr-1 text-gray"></i>
-                            Nexus Insights uses dynamic connection strings to analyze past and projected data for strategic target setting.
+                            Nexus Insights uses dynamic connection strings to analyze past and projected data for
+                            strategic target setting.
                         </p>
                         <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
                             style="font-size: medium; height: 32px; cursor: pointer;"
@@ -104,12 +109,10 @@
                     <div>
                         <p>
                             During the annual performance review, the management team of Nexus Insights organization
-                            analyzes both historical and
-                            projected data to set targets for the upcoming year. By using the dynamic connection
-                            string custom attribute feature to switch between staging and production data,
-                            they can compare past performance with future projections. This approach helps identify
-                            trends, set realistic targets, and
-                            prepare action plans.
+                            analyzes both historical and projected data to strategically set targets for the upcoming year. 
+                            By using the dynamic connection string, custom attribute feature to switch between staging 
+                            and production data, they can compare past performance with future projections. This approach helps identify
+                            trends, set realistic targets, and prepare action plans.
                         </p>
                     </div>
                     <div class="filter-input d-flex justify-content-between">
@@ -119,9 +122,12 @@
                                 <div class="form-group">
                                     <div class="form-box">
                                         <div class="button-box">
-                                            <div id="btn" [style.left.px]="selectedAttribute === 'production' ? 110 : 0"></div>
-                                            <button type="button" class="toggle-btn" (click)="setAttribute('staging')">Staging</button>
-                                            <button type="button" class="toggle-btn" (click)="setAttribute('production')">Production</button>
+                                            <div id="btn"
+                                                [style.left.px]="selectedAttribute === 'production' ? 110 : 0"></div>
+                                            <button type="button" class="toggle-btn"
+                                                (click)="setAttribute('staging')">Staging</button>
+                                            <button type="button" class="toggle-btn"
+                                                (click)="setAttribute('production')">Production</button>
                                         </div>
                                     </div>
                                 </div>
