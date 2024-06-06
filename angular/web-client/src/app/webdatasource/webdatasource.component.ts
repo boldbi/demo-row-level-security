@@ -26,7 +26,6 @@ export class WebdatasourceComponent {
   public dashboardContainer: boolean = false;
 
   public selectedCategory: string = '';
-  dropdownOpenCategory: boolean = false;
 
   ngOnInit(): void {
     this.router.events.subscribe(event => {
