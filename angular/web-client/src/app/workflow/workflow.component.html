@@ -8,7 +8,15 @@
     <h3 style="display: flex; padding-top: 10px; justify-content: center; align-items: center;"><b>Flow Diagram - Isolation Filter</b></h3>
     <img src="assets/isolation-workflow.jpg" style="display: block; margin: 0 auto; width: 85%; height: 100%;" />
 </div>
-<div *ngIf="this.filterType === 'dynamic'" style="overflow: hidden;">
+<div *ngIf="this.filterType === 'dynamicAPI'" style="overflow: hidden;">
     <h3 style="display: flex; padding-top: 10px; justify-content: center; align-items: center;"><b>Flow Diagram - Dynamic connection string, External API</b></h3>
     <img src="assets/dynamicexternalapi-workflow.jpg" style="display: block; margin: 0 auto; width: 98%; height: 92%;" />
+</div>
+<div *ngIf="this.filterType === 'dynamicCustom'" style="overflow: hidden;">
+    <h3 style="display: flex; padding-top: 10px; justify-content: center; align-items: center;"><b>Flow Diagram - Dynamic connection string, Custom Attribute</b></h3>
+    <img src="assets/dynamiccustomattribute-workflow.jpg" style="display: block; margin: 0 auto; width: 98%; height: 92%;" />
+</div>
+<div *ngIf="this.filterType === 'webdatasource'" style="overflow: hidden;">
+    <h3 style="display: flex; padding-top: 10px; justify-content: center; align-items: center;"><b>Flow Diagram - Web Datasource</b></h3>
+    <img src="assets/webdatasource-workflow.jpg" style="display: block; margin: 0 auto; width: 98%; height: 92%;"/>
 </div>

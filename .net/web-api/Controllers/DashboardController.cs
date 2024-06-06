@@ -54,6 +54,25 @@ namespace boldbi.web.api.Controllers
                         }
                         break;
                     }
+                case "dynamic-CA":
+                    {
+                        string attribute = Request.Headers["customAttribute"];
+                        if (attribute == "production")
+                        {
+                            embedDetails = GetFilteredProperties(_boldbiIProperties.DynamicConnectionStringCustomAttributeUser2);
+                        }
+                        else if(attribute == "staging")
+                        {
+                            embedDetails = GetFilteredProperties(_boldbiIProperties.DynamicConnectionStringCustomAttributeUser1);
+                        }
+                        
+                        break;
+                    }
+                case "web-datasource":
+                    {
+                        embedDetails = GetFilteredProperties(_boldbiIProperties.WebDatasource);
+                        break;
+                    }
             }
             return embedDetails ?? new EmbedConfig();
         }
@@ -131,6 +150,24 @@ namespace boldbi.web.api.Controllers
                     embedQuery += "&embed_user_email=" + _boldbiIProperties.DynamicConnectionStringIdentity2.UserEmail;
                 }
             }
+            else if (filterType == "dynamic-CA")
+            {
+                string attribute = Request.Headers["customAttribute"];
+                _embedSecret = _boldbiIProperties.DynamicConnectionStringCustomAttributeUser1.EmbedSecret;
+                if (attribute == "production")
+                {
+                    embedQuery += "&embed_user_email=" + _boldbiIProperties.DynamicConnectionStringCustomAttributeUser2.UserEmail;
+                }
+                else if (attribute == "staging")
+                {
+                    embedQuery += "&embed_user_email=" + _boldbiIProperties.DynamicConnectionStringCustomAttributeUser1.UserEmail;
+                }
+            }
+            else if (filterType == "web-datasource")
+            {
+                _embedSecret = _boldbiIProperties.WebDatasource.EmbedSecret;
+                embedQuery += "&embed_user_email=" + _boldbiIProperties.WebDatasource.UserEmail;
+            }
 
             //To set embed_server_timestamp to overcome the EmbedCodeValidation failing while different timezone using at client application.
             double timeStamp = (int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
@@ -145,7 +182,6 @@ namespace boldbi.web.api.Controllers
                 string resultContent = result.Content.ReadAsStringAsync().Result;
                 return resultContent;
             }
-
         }
 
         public string GetSignatureUrl(string queryString)

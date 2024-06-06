@@ -68,5 +68,36 @@
     "Environment": "onpremise",
     "ExpirationTime": "10000",
     "SiteIdentifier": "site/<SITE IDENTIFIER>"
+  },
+  "DynamicConnectionStringCustomAttributeUser1": {
+    "DashboardId": "f200b27f-6eb0-475c-8423-05552c652278",
+    "ServerUrl": "https://onpremise-demo.boldbi.com/bi",
+    "UserEmail": "<USER EMAIL>",
+    "EmbedSecret": "<EMBED SECRET KEY>",
+    "EmbedType": "component",
+    "Environment": "onpremise",
+    "ExpirationTime": "10000",
+    "SiteIdentifier": "site/<SITE IDENTIFIER>"
+  },
+  "DynamicConnectionStringCustomAttributeUser2": {
+    "DashboardId": "f200b27f-6eb0-475c-8423-05552c652278",
+    "ServerUrl": "https://onpremise-demo.boldbi.com/bi",
+    "UserEmail": "<USER EMAIL>",
+    "EmbedSecret": "<EMBED SECRET KEY>",
+    "EmbedType": "component",
+    "Environment": "onpremise",
+    "ExpirationTime": "10000",
+    "SiteIdentifier": "site/<SITE IDENTIFIER>"
+  },
+  "WebDatasource": {
+    "DashboardId": "96e2426f-bb0b-4b6c-b5ef-246b2fb38b20",
+    "ServerUrl": "https://onpremise-demo.boldbi.com/bi",
+    "UserEmail": "<USER EMAIL>",
+    "EmbedSecret": "<EMBED SECRET KEY>",
+    "EmbedType": "component",
+    "Environment": "onpremise",
+    "ExpirationTime": "10000",
+    "SiteIdentifier": "site/<SITE IDENTIFIER>"
   }
+
 }
