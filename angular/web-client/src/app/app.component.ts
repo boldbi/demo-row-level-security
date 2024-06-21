@@ -27,11 +27,15 @@ export class AppComponent implements AfterViewInit {
   ngOnInit() {
     this.selectedIndexSubscription = this.sharedService.selectedIndex$.subscribe((index: number[]) => {
       this.selected = index;
-      this.updateDisplay();
     });
+    this.updateDisplay();
   }
   private updateDisplay() {
     this.showHome = this.selected.length === 0;
+    if(this.selected.length == 0)
+    {
+      this.router.navigate(["/home"]);
+    }
   }
   ngAfterViewInit(): void {
     const mainElement: any =  document.getElementById('main');
