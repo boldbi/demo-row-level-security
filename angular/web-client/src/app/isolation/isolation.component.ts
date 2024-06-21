@@ -28,7 +28,9 @@ export class IsolationComponent {
   private boldbisettings: BoldBISettings | null = null;
 
   // Flag to control visibility of the dashboard container
-  dashboardContainer: boolean = false;
+  public dashboardContainer: boolean = false;
+
+  public workflowContainer: boolean =  false;
 
   // Options for tenant and isolation dashboard
   public selectedTenant: string = 'DomesticSector'
@@ -89,6 +91,9 @@ export class IsolationComponent {
     this.selectedTenant = event.value;
   }
 
+  openWorkFlow() {
+    this.workflowContainer = true;
+  }
 
   // Dashboard rendering methods
 

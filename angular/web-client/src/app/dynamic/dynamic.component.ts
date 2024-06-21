@@ -27,6 +27,11 @@ export class DynamicComponent {
 
   public dashboardContainer2: boolean = false;
 
+  // Flag to control visibility of the workflow container
+  public workflow: boolean = false;
+  public workflowContainer1: boolean = false;
+  public workflowContainer2: boolean = false;
+
   // Field used to store the identity value
   public identity: string = '';
 
@@ -54,11 +59,10 @@ export class DynamicComponent {
     const selectFromHome = localStorage.getItem('dynamicFilterTypeHome')
     const selectedCard = localStorage.getItem('dynamicFilterType')
     if (selectFromHome) {
-      if(selectFromHome == "api")
-      {
+      if (selectFromHome == "api") {
         this.selectedDynamic = [0]
       }
-      else{
+      else {
         this.selectedDynamic = [1]
       }
     }
@@ -76,11 +80,22 @@ export class DynamicComponent {
       { label: 'identity', value: this.identity },
       { label: 'attribute', value: this.selectedAttribute }
     ]
-    if(this.selectedDynamic.length)
-    {
+    if (this.selectedDynamic.length) {
       localStorage.setItem('dynamicFilterType', this.selectedDynamic[0].toString())
     }
     localStorage.setItem('dynamicPreviousSelections', JSON.stringify(data));
+  }
+
+  // Used to open the workflow diagram
+  openWorkFlow1() {
+    this.workflow = true;
+    this.workflowContainer1 = true;
+    this.workflowContainer2 = false;
+  }
+  openWorkFlow2() {
+    this.workflow = true;
+    this.workflowContainer2 = true;
+    this.workflowContainer1 = false;
   }
 
   leftClick(): void {

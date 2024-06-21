@@ -24,7 +24,7 @@
                 Examine sales data for specific product categories according to the chosen region.
               </p>
               <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
-                style="font-size: medium; height: 32px; cursor: pointer;" (click)="selectCard(0)" [routerLink]="['/workflow/datasource']" >Workflow</span>
+                style="font-size: medium; height: 32px; cursor: pointer;" (click)="selectCard(0)" (click)="openWorkflow('datasource')" >Workflow</span>
             </div>
           </div>
         </li>
@@ -53,7 +53,7 @@
                 Analyze power consumption across different sectors and assess its distribution.
               </p>
               <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
-                style="font-size: medium; height: 32px; cursor: pointer;" (click)="selectCard(1)" [routerLink]="['/workflow','isolation']">Workflow</span>
+                style="font-size: medium; height: 32px; cursor: pointer;" (click)="selectCard(1)" (click)="openWorkflow('isolation')">Workflow</span>
             </div>
           </div>
         </li>
@@ -82,7 +82,7 @@
                 Global organization leverages department-specific data for continuous improvement.
               </p>
               <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
-                style="font-size: medium; height: 32px; cursor: pointer;" (click)="selectCard(2)" [routerLink]="['/workflow','dynamicAPI']">Workflow</span>
+                style="font-size: medium; height: 32px; cursor: pointer;" (click)="selectCard(2)" (click)="openWorkflow('dynamic1')">Workflow</span>
             </div>
           </div>
         </li>
@@ -111,7 +111,7 @@
                 Nexus Insights uses dynamic connection strings to analyze past and projected data for strategic target setting.
               </p>
               <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
-                style="font-size: medium; height: 32px; cursor: pointer;" (click)="selectCard(2)" [routerLink]="['/workflow','dynamicCustom']">Workflow</span>
+                style="font-size: medium; height: 32px; cursor: pointer;" (click)="selectCard(2)" (click)="openWorkflow('dynamic2')">Workflow</span>
             </div>
           </div>
         </li>
@@ -140,7 +140,36 @@
                 Maximizing Occupancy and Revenue Through Strategic Hospitality Management.
               </p>
               <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
-                style="font-size: medium; height: 32px; cursor: pointer;" (click)="selectCard(3)" [routerLink]="['/workflow','webdatasource']" >Workflow</span>
+                style="font-size: medium; height: 32px; cursor: pointer;" (click)="selectCard(3)" (click)="openWorkflow('webdatasource')">Workflow</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mb-4 container-hover">
+    <div class="bg-white shadow rounded p-4">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="d-block">
+            <div class="d-flex justify-content-between align-items-center" style="padding-bottom: 5px;">
+              <div>
+                <span class="text-sm font-semibold text-indigo">Personalized Teacher Insights</span>
+                <span class="category-tag">User filter</span>
+              </div>
+              <div class="d-flex px-2 py-1 text-xs bg-green bg-green-hover text-green"
+               id="expandDynamic" style="cursor: pointer;">
+                <span class="text-green" style="padding-right: 5px;"  routerLink="/userfilter" (click)="selectCard(4)"> Explore sample</span>
+              </div>
+            </div>
+            <div class="mt-2" style="display: flex; justify-content: space-between;">
+              <p class="text-sm text-gray">
+                <i class="fas fa-chart-line mr-1 text-gray"></i>
+                Teachers access tailored student performance data for effective support.
+              </p>
+              <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
+                style="font-size: medium; height: 32px; cursor: pointer;" (click)="selectCard(4)" (click)="openWorkflow('userfilter')" >Workflow</span>
             </div>
           </div>
         </li>

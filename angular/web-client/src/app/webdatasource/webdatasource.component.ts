@@ -25,6 +25,9 @@ export class WebdatasourceComponent {
   // Flag to control visibility of the dashboard container
   public dashboardContainer: boolean = false;
 
+  // Flag to control visibility of the workflow container
+  public workflowContainer: boolean = false;
+
   public selectedCategory: string = '';
 
   ngOnInit(): void {
@@ -49,6 +52,11 @@ export class WebdatasourceComponent {
   // To retireve previous data from the local storage 
   setData(): void {
     localStorage.setItem('WebDatasourcePreviousSelections', this.selectedCategory);
+  }
+
+  // Used to open the workflow diagram
+  openWorkFlow() {
+    this.workflowContainer = true;
   }
 
   // Fetch BoldBI settings from the backend and prepare for dashboard rendering

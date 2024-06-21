@@ -1,4 +1,4 @@
-<div class="mb-4 container py-5">
+<div class="mb-4 container py-5" [class.hidden]="workflowContainer">
   <div class="bg-white shadow rounded p-4">
     <ul class="list-group">
       <li class="list-group-item">
@@ -8,9 +8,9 @@
               <span class="text-sm font-semibold text-indigo">National Renewable Energy Laboratory (NREL)</span>
               <span class="category-tag">isolation</span>
             </div>
-            <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
+            <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover" id="isolationWorkflow"
               style="font-size: medium; height: 32px; cursor: pointer;"
-              [routerLink]="['/workflow','isolation']">Workflow</span>
+              (click)="openWorkFlow()">Workflow</span>
           </div>
           <div style="display: flex; justify-content: space-between;">
             <p class="text-sm text-gray">
@@ -70,5 +70,13 @@
         </div>
       </li>
     </ul>
+  </div>
+</div>
+<div [class.hidden]="!workflowContainer">
+  <button type="button" class="btn btn-primary btnw" (click)="this.workflowContainer = false"><span><img class="left-arrow" src="assets/left-arrow.png"></span><span>Back to sample</span></button>
+
+  <div style="overflow: hidden;">
+    <h3 style="display: flex; padding-top: 10px; justify-content: center; align-items: center;"><b>Flow Diagram - Isolation Filter</b></h3>
+    <img src="assets/isolation-workflow.jpg" style="display: block; margin: 0 auto; width: 79%; height: 100%;" />
   </div>
 </div>
