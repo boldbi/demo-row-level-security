@@ -27,7 +27,7 @@
                             [routerLink]="['/workflow','dynamicAPI']">Workflow</span>
                     </div>
                 </div>
-                <div class="filter-container" *ngIf="selectedDynamic.includes(0)">
+                <div class="filter-container" [class.hidden]="!selectedDynamic.includes(0)">
                     <div>
                         <p>
                             By leveraging the dynamic connection string feature via an external API,
@@ -105,7 +105,7 @@
                             [routerLink]="['/workflow','dynamicCustom']">Workflow</span>
                     </div>
                 </div>
-                <div class="filter-container" *ngIf="selectedDynamic.includes(1)">
+                <div class="filter-container" [class.hidden]="!selectedDynamic.includes(1)">
                     <div>
                         <p>
                             During the annual performance review, the management team of Nexus Insights organization
@@ -138,7 +138,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="py-4" *ngIf="dashboardContainer2==true" id="dashboard3"
+                    <div class="py-4" *ngIf="dashboardContainer2==true" id="dashboard4"
                         style="width:100% !important; height:800px"></div>
                 </div>
             </li>

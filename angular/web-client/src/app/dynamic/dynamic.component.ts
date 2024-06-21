@@ -76,7 +76,10 @@ export class DynamicComponent {
       { label: 'identity', value: this.identity },
       { label: 'attribute', value: this.selectedAttribute }
     ]
-    localStorage.setItem('dynamicFilterType', this.selectedDynamic[0].toString())
+    if(this.selectedDynamic.length)
+    {
+      localStorage.setItem('dynamicFilterType', this.selectedDynamic[0].toString())
+    }
     localStorage.setItem('dynamicPreviousSelections', JSON.stringify(data));
   }
 
@@ -97,8 +100,6 @@ export class DynamicComponent {
   }
 
   selectCard(index: number): void {
-    this.dashboardContainer2 = false;
-    this.dashboardContainer1 = false;
     if (this.selectedDynamic.includes(index)) {
       this.selectedDynamic = [];
     }
@@ -178,7 +179,7 @@ export class DynamicComponent {
     const option = {
       serverUrl: `${this.boldbisettings?.ServerUrl ?? ''}/${this.boldbisettings?.SiteIdentifier ?? ''}`,
       dashboardId: this.boldbisettings?.DashboardId,
-      embedContainerId: 'dashboard3',
+      embedContainerId: 'dashboard4',
       embedType: BoldBI.EmbedType.Component,
       environment: this.boldbisettings?.Environment,
       mode: BoldBI.Mode.View,
