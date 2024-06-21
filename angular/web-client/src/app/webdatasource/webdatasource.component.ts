@@ -78,7 +78,7 @@ export class WebdatasourceComponent {
     const option = {
       serverUrl: `${this.boldbisettings?.ServerUrl ?? ''}/${this.boldbisettings?.SiteIdentifier ?? ''}`,
       dashboardId: this.boldbisettings?.DashboardId,
-      embedContainerId: 'dashboard',
+      embedContainerId: 'dashboard5',
       embedType: BoldBI.EmbedType.Component,
       environment: this.boldbisettings?.Environment,
       mode: BoldBI.Mode.View,
