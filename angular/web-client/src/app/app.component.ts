@@ -6,13 +6,14 @@ import { DatasourceComponent } from './datasource/datasource.component';
 import { IsolationComponent } from './isolation/isolation.component';
 import { DynamicComponent } from './dynamic/dynamic.component';
 import { WebdatasourceComponent } from './webdatasource/webdatasource.component';
+import { UserfilterComponent } from './userfilter/userfilter.component';
 import { SharedService } from './shared.service';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, HeaderComponent, DatasourceComponent, IsolationComponent, DynamicComponent, WebdatasourceComponent],
+  imports: [RouterOutlet, HomeComponent, HeaderComponent, DatasourceComponent, IsolationComponent, DynamicComponent, WebdatasourceComponent, UserfilterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

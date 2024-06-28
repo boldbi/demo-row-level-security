@@ -78,7 +78,7 @@ export class WebdatasourceComponent {
     const option = {
       serverUrl: `${this.boldbisettings?.ServerUrl ?? ''}/${this.boldbisettings?.SiteIdentifier ?? ''}`,
       dashboardId: this.boldbisettings?.DashboardId,
-      embedContainerId: 'dashboard',
+      embedContainerId: 'dashboard5',
       embedType: BoldBI.EmbedType.Component,
       environment: this.boldbisettings?.Environment,
       mode: BoldBI.Mode.View,
@@ -98,7 +98,6 @@ export class WebdatasourceComponent {
     const dashboard = BoldBI.create(option);
     dashboard.loadDashboard();
   }
-
 }
 
 // Interface to define the structure of BoldBI settings retrieved from the backend
