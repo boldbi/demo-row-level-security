@@ -30,6 +30,7 @@ export class AppComponent implements AfterViewInit {
       this.selected = index;
       this.updateDisplay();
     });
+    this.router.navigate(["/home"]);
   }
   private updateDisplay() {
     this.showHome = this.selected.length === 0;
