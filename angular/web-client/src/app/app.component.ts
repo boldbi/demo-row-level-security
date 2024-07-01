@@ -6,6 +6,7 @@ import { DatasourceComponent } from './datasource/datasource.component';
 import { IsolationComponent } from './isolation/isolation.component';
 import { DynamicComponent } from './dynamic/dynamic.component';
 import { WebdatasourceComponent } from './webdatasource/webdatasource.component';
+import { UserfilterComponent } from './userfilter/userfilter.component';
 import { SharedService } from './shared.service';
 import { Subscription } from 'rxjs';
 import { UserfilterComponent } from './userfilter/userfilter.component';

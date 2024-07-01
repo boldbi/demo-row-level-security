@@ -98,7 +98,6 @@ export class WebdatasourceComponent {
     const dashboard = BoldBI.create(option);
     dashboard.loadDashboard();
   }
-
 }
 
 // Interface to define the structure of BoldBI settings retrieved from the backend
