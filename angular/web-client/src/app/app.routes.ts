@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { IsolationComponent } from './isolation/isolation.component';
 import { DynamicComponent } from './dynamic/dynamic.component';
 import { WebdatasourceComponent } from './webdatasource/webdatasource.component'
+import { UserfilterComponent } from './userfilter/userfilter.component';
 
 export const routes: Routes =
    [
@@ -13,4 +14,5 @@ export const routes: Routes =
       { path: 'isolation', component: IsolationComponent },
       { path: 'dynamic-connection', component: DynamicComponent },
       { path: 'webdatasource', component: WebdatasourceComponent},
+      { path: 'userfilter', component: UserfilterComponent}
    ];

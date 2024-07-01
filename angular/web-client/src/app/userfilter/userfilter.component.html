@@ -1,0 +1,92 @@
+<div class="mb-4 container py-5" [class.hidden]="workflowContainer">
+    <div class="bg-white shadow rounded p-4">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <div class="d-block">
+            <div class="d-flex justify-content-between align-items-center" style="padding-bottom: 5px;">
+              <div>
+                <span class="text-sm font-semibold text-indigo">Personalized Teacher Insights</span>
+                <span class="category-tag">user filter</span>
+              </div>
+              <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover" id="userfilterWorkflow"
+                style="font-size: medium; height: 32px; cursor: pointer;"
+                (click)="openWorkFlow()">Workflow</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <p class="text-sm text-gray">
+                <i class="fas fa-chart-line mr-1 text-gray"></i>
+                Teachers access tailored student performance data for effective support.
+              </p>
+            </div>
+          </div>
+          <div class="filter-content">
+            <div class=" filter-container">
+              <p>
+                The Green Valley High School is committed to providing personalized support and insights for its staff.
+                The high school's performance dashboard is a crucial tool in achieving this goal. By using the user
+                filter,
+                teachers at Green Valley High School can log-in with their individual credentials and access data
+                specifically
+                relevant to their classes and responsibilities.
+              </p>
+            </div>
+            <div class="filter-content filter-container" style="padding-bottom: 50px;">
+              <div>
+                <p class="text-gray">Listed below are the teachers of the high school:</p>
+              <ul>
+                <li>Ms Smith Carlson</li>
+                <li>Mr Johnson Brown</li>
+                <li>Mr Patel Singh</li>
+              </ul>
+              </div>
+            </div>
+            <div class="login-container" *ngIf="logincontainer">
+              <h2 class="login-header">Login</h2>
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" id="username" formControlName="username" required />
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" formControlName="password" required />
+                </div>
+                <button type="submit" class="login-button">Login</button>
+              </form>
+              <div class="error-message" *ngIf="loginError">{{ loginError }}</div>
+              <div class="small text-secondary mt-3 d-none d-sm-flex">
+                <strong>Login Details</strong>
+                <ul>
+                  <li>Smith: password1</li>
+                  <li>Johnson: password2</li>
+                  <li>Patel: password3</li>
+                </ul>
+              </div>
+            </div>
+            <div>
+                <div class="d-flex justify-content-end">
+                  <div *ngIf="messagecontainer==true">
+                    <h4 class="align-items-center">You are logged in as <b>{{selectedUserName}}</b></h4>
+                  </div>
+                </div>
+                <div *ngIf="messagecontainer==true" class="d-flex justify-content-end py-2">
+                  <button class="btn btn-primary login" (click)="logout()">Logout</button>
+                </div>
+              </div>         
+            <div class="py-2" *ngIf="dashboardContainer==true" id="dashboard6"
+              style="width:100% !important; height:800px">
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div [class.hidden]="!workflowContainer">
+    <button type="button" class="btn btn-primary return-btn" (click)="this.workflowContainer = false"><span><img class="left-arrow"
+          src="assets/left-arrow.png"></span><span>Back to sample</span></button>
+  
+    <div style="overflow: hidden;">
+      <h3 style="display: flex; padding-top: 10px; justify-content: center; align-items: center;"><b>Flow Diagram - User Filter</b></h3>
+      <img src="assets/userfilter-workflow.jpg" style="display: block; margin: 0 auto; width: 90%; height: 90%;" />
+    </div>
+  </div>
