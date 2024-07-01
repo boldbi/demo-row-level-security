@@ -45,9 +45,9 @@ export class UserfilterComponent {
   public selectedTeacher: string = '';
 
   validCredentials: { username: string, password: string }[] = [
-    { username: 'Smith', password: 'password1' },
-    { username: 'Johnson', password: 'password2' },
-    { username: 'patel', password: 'password3' }
+    { username: 'Smith', password: 'smith@123' },
+    { username: 'Johnson', password: 'johnson@123' },
+    { username: 'patel', password: 'patel@123' }
   ];
 
   ngOnInit(): void {

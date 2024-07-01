@@ -9,7 +9,6 @@ import { WebdatasourceComponent } from './webdatasource/webdatasource.component'
 import { UserfilterComponent } from './userfilter/userfilter.component';
 import { SharedService } from './shared.service';
 import { Subscription } from 'rxjs';
-import { UserfilterComponent } from './userfilter/userfilter.component';
 
 @Component({
   selector: 'app-root',

@@ -1,4 +1,4 @@
-<div class="mb-4 container py-5">
+<div class="mb-4 container py-5" [class.hidden]="workflowContainer">
   <div class="bg-white shadow rounded p-4">
     <ul class="list-group">
       <li class="list-group-item">
@@ -8,9 +8,9 @@
               <span class="text-sm font-semibold text-indigo">Urban Heights Hotel</span>
               <span class="category-tag">web data source</span>
             </div>
-            <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
+            <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover" id="webdatasourceWorkflow"
               style="font-size: medium; height: 32px; cursor: pointer;"
-              [routerLink]="['/workflow','webdatasource']">Workflow</span>
+              (click)="openWorkFlow()">Workflow</span>
           </div>
           <div style="display: flex; justify-content: space-between;">
             <p class="text-sm text-gray">
