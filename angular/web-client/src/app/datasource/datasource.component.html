@@ -1,4 +1,4 @@
-<div class="mb-4 container py-5">
+<div class="mb-4 container py-5" [class.hidden]="workflowContainer">
     <div class="bg-white shadow rounded p-4">
       <ul class="list-group">
         <li class="list-group-item">
@@ -8,8 +8,8 @@
                 <span class="text-sm font-semibold text-indigo">Category Sales Manager</span>
                 <span class="category-tag">data source</span>
               </div>
-              <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover"
-                style="font-size: medium; height: 32px; cursor: pointer;" [routerLink]="['/workflow','datasource']">Workflow</span>
+              <span class="px-2 py-1 text-xs bg-grey text-grey bg-grey-hover" id="datasourceWorkflow"
+                style="font-size: medium; height: 32px; cursor: pointer;" (click)="openWorkFlow()">Workflow</span>
             </div>
             <div style="display: flex; justify-content: space-between;">
               <p class="text-sm text-gray">
@@ -80,10 +80,20 @@
                 </div>
               </div>
             </div>
-            <div class="py-4" *ngIf="dashboardContainer==true" id="dashboard" style="width:100% !important; height:800px"></div>
+            <div class="py-4" *ngIf="dashboardContainer==true" id="dashboard1" style="width:100% !important; height:800px"></div>
           </div>
         </li>
       </ul>
+    </div>
+  </div>
+
+  <div [class.hidden]="!workflowContainer">
+    <button type="button" class="btn btn-primary return-btn" (click)="this.workflowContainer = false"><span><img class="left-arrow"
+          src="assets/left-arrow.png"></span><span>Back to sample</span></button>
+  
+    <div style="overflow: hidden;">
+      <h3 style="display: flex; padding-top: 10px; justify-content: center; align-items: center;"><b>Flow Diagram - Datasource Filter</b></h3>
+      <img src="assets/datasource-workflow.jpg" style="display: block; margin: 0 auto; width: 90%; height: 90%;" />
     </div>
   </div>
   

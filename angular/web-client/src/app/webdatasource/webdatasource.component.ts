@@ -25,6 +25,9 @@ export class WebdatasourceComponent {
   // Flag to control visibility of the dashboard container
   public dashboardContainer: boolean = false;
 
+  // Flag to control visibility of the workflow container
+  public workflowContainer: boolean = false;
+
   public selectedCategory: string = '';
 
   ngOnInit(): void {
@@ -51,6 +54,11 @@ export class WebdatasourceComponent {
     localStorage.setItem('WebDatasourcePreviousSelections', this.selectedCategory);
   }
 
+  // Used to open the workflow diagram
+  openWorkFlow() {
+    this.workflowContainer = true;
+  }
+
   // Fetch BoldBI settings from the backend and prepare for dashboard rendering
   fetchBoldBISettings() {
     this.dashboardContainer = true;
@@ -70,7 +78,7 @@ export class WebdatasourceComponent {
     const option = {
       serverUrl: `${this.boldbisettings?.ServerUrl ?? ''}/${this.boldbisettings?.SiteIdentifier ?? ''}`,
       dashboardId: this.boldbisettings?.DashboardId,
-      embedContainerId: 'dashboard',
+      embedContainerId: 'dashboard5',
       embedType: BoldBI.EmbedType.Component,
       environment: this.boldbisettings?.Environment,
       mode: BoldBI.Mode.View,
@@ -90,7 +98,6 @@ export class WebdatasourceComponent {
     const dashboard = BoldBI.create(option);
     dashboard.loadDashboard();
   }
-
 }
 
 // Interface to define the structure of BoldBI settings retrieved from the backend

@@ -25,6 +25,9 @@ export class DatasourceComponent {
   // Flag to control visibility of the dashboard container
   public dashboardContainer: boolean = false;
 
+  // Flag to control visibility of the workflow container
+  public workflowContainer: boolean = false;
+
   // Options for regions and category dropdowns
   regions: string[] = ['Central', 'East', 'West', 'North', 'South'];
   selectedRegions: string[] = [];
@@ -80,6 +83,11 @@ export class DatasourceComponent {
 
   // UI methods for dropdowns and selection handling
 
+  // Used to open the workflow diagram
+  openWorkFlow() {
+    this.workflowContainer = true;
+  }
+  
   // Toggle visibility of regions dropdown
   toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
@@ -143,7 +151,7 @@ export class DatasourceComponent {
     const option = {
       serverUrl: `${this.boldbisettings?.ServerUrl ?? ''}/${this.boldbisettings?.SiteIdentifier ?? ''}`,
       dashboardId: this.boldbisettings?.DashboardId,
-      embedContainerId: 'dashboard',
+      embedContainerId: 'dashboard1',
       embedType: BoldBI.EmbedType.Component,
       environment: this.boldbisettings?.Environment,
       mode: BoldBI.Mode.View,

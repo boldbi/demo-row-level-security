@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkflowComponent } from './workflow.component';
+import { UserfilterComponent } from './userfilter.component';
 
-describe('WorkflowComponent', () => {
-  let component: WorkflowComponent;
-  let fixture: ComponentFixture<WorkflowComponent>;
+describe('UserfilterComponent', () => {
+  let component: UserfilterComponent;
+  let fixture: ComponentFixture<UserfilterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WorkflowComponent]
+      imports: [UserfilterComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(WorkflowComponent);
+    fixture = TestBed.createComponent(UserfilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
