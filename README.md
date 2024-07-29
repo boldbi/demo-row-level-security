@@ -5,6 +5,7 @@ This application, featuring Angular for the frontend and .NET for the backend, d
 ## Running the Backend .NET Application
 
 To run the backend .NET application, follow these steps:
+
 1. Navigate to the `./net/web-api` folder.
 2. Open the `boldbi.web.api.sln` solution file.
 3. Simply run the application.
@@ -13,11 +14,12 @@ To run the backend .NET application, follow these steps:
 
 To run the frontend Angular application, ensure that you have the Angular CLI installed on your machine. If not, install it by running `npm install -g @angular/cli`.
 Follow these steps to run the project:
+
 1. Open a terminal or command prompt.
 2. Navigate to the project directory.
 3. Run `npm install` to install the required npm packages.
 4. Run `ng serve` to start the development server and run the project.
-   
+
 ### Running a Specific Component
 
 If you want to run a component individually, you can directly bootstrap that component in the `main.ts` file.
@@ -35,5 +37,3 @@ You can also run the isolation filter sample, by changing the value to `Isolatio
 ![image](https://github.com/bold-bi/embedded-bi-samples/assets/149655326/3cd02a75-5456-4c95-b6d7-80ff3aceea49)
 
 This way, only the specified component will be executed.
-
-
