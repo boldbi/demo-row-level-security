@@ -122,6 +122,7 @@ export class UserfilterComponent {
     this.messagecontainer = false;
     this.selectedUserName = '';
     this.dashboardContainer = false;
+    this.loginError = '';
   }
 
 
