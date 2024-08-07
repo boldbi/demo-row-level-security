@@ -73,6 +73,23 @@ namespace boldbi.web.api.Controllers
                         embedDetails = GetFilteredProperties(_boldbiIProperties.WebDatasource);
                         break;
                     }
+                 case "userfilter":
+                {
+                    var user = Request.Headers["user"];
+                    if (user == "teacher1")
+                    {
+                        embedDetails = GetFilteredProperties(_boldbiIProperties.UserFilterUser1);
+                    }
+                    else if (user == "teacher2")
+                    {
+                        embedDetails = GetFilteredProperties(_boldbiIProperties.UserFilterUser2);
+                    }
+                    else if (user == "teacher3")
+                    {
+                        embedDetails = GetFilteredProperties(_boldbiIProperties.UserFilterUser3);
+                    }
+                    break;
+                }
             }
             return embedDetails ?? new EmbedConfig();
         }
@@ -167,6 +184,23 @@ namespace boldbi.web.api.Controllers
             {
                 _embedSecret = _boldbiIProperties.WebDatasource.EmbedSecret;
                 embedQuery += "&embed_user_email=" + _boldbiIProperties.WebDatasource.UserEmail;
+            }
+            else if (filterType == "userfilter")
+            {
+                _embedSecret = _boldbiIProperties.UserFilterUser1.EmbedSecret;
+                var user = Request.Headers["user"];
+                if (user == "teacher1")
+                {
+                    embedQuery += "&embed_user_email=" + _boldbiIProperties.UserFilterUser1.UserEmail;
+                }
+                else if (user == "teacher2")
+                {
+                    embedQuery += "&embed_user_email=" + _boldbiIProperties.UserFilterUser2.UserEmail;
+                }
+                else if (user == "teacher3")
+                {
+                    embedQuery += "&embed_user_email=" + _boldbiIProperties.UserFilterUser3.UserEmail;
+                }
             }
 
             //To set embed_server_timestamp to overcome the EmbedCodeValidation failing while different timezone using at client application.

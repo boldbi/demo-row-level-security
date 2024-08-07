@@ -51,4 +51,38 @@ export class HomeComponent implements AfterViewInit{
   openHome(dynamicFilterType: string): void {
     localStorage.setItem('dynamicFilterTypeHome',dynamicFilterType);
   }
+
+  openWorkflow(filterType: string): void {
+    var element: any;
+    if(filterType == 'datasource')
+    {
+      element = document.getElementById('datasourceWorkflow');
+      element.click();
+    }
+    else if(filterType == 'isolation')
+    {
+      element = document.getElementById('isolationWorkflow');
+      element.click();
+    }
+    else if(filterType == 'dynamic1')
+    {
+      element = document.getElementById('dynamicWorkflow1');
+      element.click();
+    }
+    else if(filterType == 'dynamic2')
+    {
+      element = document.getElementById('dynamicWorkflow2');
+      element.click();
+    }
+    else if(filterType == 'webdatasource')
+    {
+      element = document.getElementById('webdatasourceWorkflow');
+      element.click();
+    }
+    else if(filterType == 'userfilter')
+    {
+      element = document.getElementById('userfilterWorkflow');
+      element.click();
+    }
+  }
 }

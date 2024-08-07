@@ -27,6 +27,11 @@ export class DynamicComponent {
 
   public dashboardContainer2: boolean = false;
 
+  // Flag to control visibility of the workflow container
+  public workflow: boolean = false;
+  public workflowContainer1: boolean = false;
+  public workflowContainer2: boolean = false;
+
   // Field used to store the identity value
   public identity: string = '';
 
@@ -54,11 +59,10 @@ export class DynamicComponent {
     const selectFromHome = localStorage.getItem('dynamicFilterTypeHome')
     const selectedCard = localStorage.getItem('dynamicFilterType')
     if (selectFromHome) {
-      if(selectFromHome == "api")
-      {
+      if (selectFromHome == "api") {
         this.selectedDynamic = [0]
       }
-      else{
+      else {
         this.selectedDynamic = [1]
       }
     }
@@ -76,8 +80,22 @@ export class DynamicComponent {
       { label: 'identity', value: this.identity },
       { label: 'attribute', value: this.selectedAttribute }
     ]
-    localStorage.setItem('dynamicFilterType', this.selectedDynamic[0].toString())
+    if (this.selectedDynamic.length) {
+      localStorage.setItem('dynamicFilterType', this.selectedDynamic[0].toString())
+    }
     localStorage.setItem('dynamicPreviousSelections', JSON.stringify(data));
+  }
+
+  // Used to open the workflow diagram
+  openWorkFlow1() {
+    this.workflow = true;
+    this.workflowContainer1 = true;
+    this.workflowContainer2 = false;
+  }
+  openWorkFlow2() {
+    this.workflow = true;
+    this.workflowContainer2 = true;
+    this.workflowContainer1 = false;
   }
 
   leftClick(): void {
@@ -97,8 +115,6 @@ export class DynamicComponent {
   }
 
   selectCard(index: number): void {
-    this.dashboardContainer2 = false;
-    this.dashboardContainer1 = false;
     if (this.selectedDynamic.includes(index)) {
       this.selectedDynamic = [];
     }
@@ -178,7 +194,7 @@ export class DynamicComponent {
     const option = {
       serverUrl: `${this.boldbisettings?.ServerUrl ?? ''}/${this.boldbisettings?.SiteIdentifier ?? ''}`,
       dashboardId: this.boldbisettings?.DashboardId,
-      embedContainerId: 'dashboard3',
+      embedContainerId: 'dashboard4',
       embedType: BoldBI.EmbedType.Component,
       environment: this.boldbisettings?.Environment,
       mode: BoldBI.Mode.View,
