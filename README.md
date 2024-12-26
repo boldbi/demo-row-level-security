@@ -6,7 +6,7 @@ This application, featuring Angular for the frontend and .NET for the backend, d
 
 To run the backend .NET application, follow these steps:
 
-1. Navigate to the `./net/web-api` folder.
+1. Navigate to the `.net/web-api` folder.
 2. Open the `boldbi.web.api.sln` solution file.
 3. Simply run the application.
 
@@ -16,7 +16,7 @@ To run the frontend Angular application, ensure that you have the Angular CLI in
 Follow these steps to run the project:
 
 1. Open a terminal or command prompt.
-2. Navigate to the project directory.
+2. Navigate to the `angular/web-client` folder.
 3. Run `npm install` to install the required npm packages.
 4. Run `ng serve` to start the development server and run the project.
 
@@ -26,14 +26,14 @@ If you want to run a component individually, you can directly bootstrap that com
 
 By default the `AppComponent` will be bootstrapped, as it is the root-component of the application.
 
-![image](https://github.com/bold-bi/embedded-bi-samples/assets/149655326/a3ba174a-2891-4248-a549-b6513538bca9)
+![image](https://github.com/user-attachments/assets/01a653f6-497b-401b-bee5-cfed2a1fc61f)
 
 For example, if you want to run the data source filter sample, you can change the value to `DatasourceComponent`
 
-![image](https://github.com/bold-bi/embedded-bi-samples/assets/149655326/a485df37-a22f-4a8a-97aa-5efc8531c2fa)
+![image](https://github.com/user-attachments/assets/8fcdeaae-408f-47bf-980a-9ebfcff4f4db)
 
 You can also run the isolation filter sample, by changing the value to `IsolationComponent`
 
-![image](https://github.com/bold-bi/embedded-bi-samples/assets/149655326/3cd02a75-5456-4c95-b6d7-80ff3aceea49)
+![image](https://github.com/user-attachments/assets/e4ea4958-fb5d-413e-9243-106486a38f10)
 
 This way, only the specified component will be executed.
