@@ -1,7 +1,7 @@
 {
   "Datasource": {
     "DashboardId": "dafb57d8-45a7-49a7-b016-38a5cd91cccb",
-    "ServerUrl": "https://onpremise-demo.boldbi.com/bi",
+    "ServerUrl": "",
     "UserEmail": "<USER EMAIL>",
     "EmbedSecret": "<EMBED SECRET KEY>",
     "EmbedType": "component",
