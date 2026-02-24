@@ -9,7 +9,7 @@ This application, featuring Angular for the frontend and .NET for the backend, d
 * [Visual Studio Code](https://code.visualstudio.com/download>)
 * [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/)
 
-> **NOTE:** Node.js version supported from 20.20.
+> **NOTE:** Node.js version supported from v20.20.
 
 ## Running the Backend .NET Application
 
