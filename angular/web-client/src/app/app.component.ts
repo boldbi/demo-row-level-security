@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { RouterOutlet, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { DatasourceComponent } from './datasource/datasource.component';
@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, HeaderComponent, DatasourceComponent, IsolationComponent, DynamicComponent, WebdatasourceComponent, UserfilterComponent],
+  imports: [HomeComponent, HeaderComponent, DatasourceComponent, IsolationComponent, DynamicComponent, WebdatasourceComponent, UserfilterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

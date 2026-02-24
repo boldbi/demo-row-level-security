@@ -152,8 +152,6 @@ export class DatasourceComponent {
       serverUrl: `${this.boldbisettings?.ServerUrl ?? ''}/${this.boldbisettings?.SiteIdentifier ?? ''}`,
       dashboardId: this.boldbisettings?.DashboardId,
       embedContainerId: 'dashboard1',
-      embedType: BoldBI.EmbedType.Component,
-      environment: this.boldbisettings?.Environment,
       mode: BoldBI.Mode.View,
       width: '100%',
       height: '800px',
@@ -165,8 +163,10 @@ export class DatasourceComponent {
           'Category': this.selectedcat,
         }
       },
-      dashboardSettings: {
-        showHeader: false
+      settings: {
+        viewer: {
+            header: false
+        }
       }
     };
     const dashboard = BoldBI.create(option);
