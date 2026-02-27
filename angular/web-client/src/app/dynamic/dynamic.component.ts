@@ -150,8 +150,6 @@ export class DynamicComponent {
       serverUrl: `${this.boldbisettings?.ServerUrl ?? ''}/${this.boldbisettings?.SiteIdentifier ?? ''}`,
       dashboardId: this.boldbisettings?.DashboardId,
       embedContainerId: 'dashboard3',
-      embedType: BoldBI.EmbedType.Component,
-      environment: this.boldbisettings?.Environment,
       mode: BoldBI.Mode.View,
       width: '100%',
       height: '800px',
@@ -163,12 +161,14 @@ export class DynamicComponent {
 
         }
       },
-      dashboardSettings: {
-        showHeader: false
-      },
-      dynamicConnection: {
-        isEnabled: true,
-        identity: this.identity
+      settings: {
+        viewer: {
+            header: false
+        },
+        dynamicConnection: {
+          enabled: true,
+          identity: this.identity
+        }
       }
     };
     const dashboard = BoldBI.create(option);
@@ -195,8 +195,6 @@ export class DynamicComponent {
       serverUrl: `${this.boldbisettings?.ServerUrl ?? ''}/${this.boldbisettings?.SiteIdentifier ?? ''}`,
       dashboardId: this.boldbisettings?.DashboardId,
       embedContainerId: 'dashboard4',
-      embedType: BoldBI.EmbedType.Component,
-      environment: this.boldbisettings?.Environment,
       mode: BoldBI.Mode.View,
       width: '100%',
       height: '800px',
@@ -207,9 +205,11 @@ export class DynamicComponent {
           'customAttribute': this.selectedAttribute
         }
       },
-      dashboardSettings: {
-        showHeader: false
-      },
+      settings: {
+        viewer: {
+            header: false
+        }
+      }
     };
     const dashboard = BoldBI.create(option);
     dashboard.loadDashboard();

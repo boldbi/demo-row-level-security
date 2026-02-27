@@ -2,13 +2,32 @@
 
 This application, featuring Angular for the frontend and .NET for the backend, demonstrates the implementation of various row-level security features within Bold BI dashboards when integrated into embedded solutions.
 
+## Requirements
+
+* [Node.js](https://nodejs.org/en/)
+* [.NET Core 8.0](https://dotnet.microsoft.com/download/dotnet-core)
+* [Visual Studio Code](https://code.visualstudio.com/download>)
+* [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/)
+
+> **NOTE:** Node.js version supported from v20.20.
+
 ## Running the Backend .NET Application
 
 To run the backend .NET application, follow these steps:
 
+### Run in Visual Studio
+
 1. Navigate to the `.net/web-api` folder.
 2. Open the `boldbi.web.api.sln` solution file.
-3. Simply run the application.
+3. Simply run the application. 
+
+### Run in Visual Studio Code
+
+1. Open a terminal or command prompt.
+2. Navigate to the `.net/web-api` folder.
+3. Execute the command `dotnet restore` to restore the required dependencies.
+4. Build your .NET project by executing the `dotnet build` command in the terminal.
+5. To run the application, use the command `dotnet run` in the terminal. 
 
 ## Running the Frontend Angular Application
 

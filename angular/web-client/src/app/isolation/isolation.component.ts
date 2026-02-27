@@ -120,8 +120,6 @@ export class IsolationComponent {
       serverUrl: `${this.boldbisettings?.ServerUrl ?? ''}/${this.boldbisettings?.SiteIdentifier ?? ''}`,
       dashboardId: this.boldbisettings?.DashboardId,
       embedContainerId: "dashboard2",
-      embedType: BoldBI.EmbedType.Component,
-      environment: this.boldbisettings?.Environment,
       mode: BoldBI.Mode.View,
       width: "100%",
       height: "800px",
@@ -133,8 +131,10 @@ export class IsolationComponent {
           'isolationDashboard': this.isolationDashboard,
         }
       },
-      dashboardSettings: {
-        showHeader: false,
+      settings: {
+        viewer: {
+            header: false
+        }
       }
     };
     var dashboard = BoldBI.create(option);
