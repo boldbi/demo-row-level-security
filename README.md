@@ -5,7 +5,7 @@ This application, featuring Angular for the frontend and .NET for the backend, d
 ## Requirements
 
 * [Node.js](https://nodejs.org/en/)
-* [.NET Core 6.0](https://dotnet.microsoft.com/download/dotnet-core)
+* [.NET Core 8.0](https://dotnet.microsoft.com/download/dotnet-core)
 * [Visual Studio Code](https://code.visualstudio.com/download>)
 * [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/)
 
